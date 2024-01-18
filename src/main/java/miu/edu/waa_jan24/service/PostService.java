@@ -9,5 +9,4 @@ public interface PostService {
     public List<Post> findAll();
     public PostDto findById(long id);
     public void save(PostDto p);
-//    public void save(Post p);
 }
