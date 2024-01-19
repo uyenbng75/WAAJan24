@@ -27,7 +27,6 @@ public class PostController {
     }
 
     @PostMapping
-
     public void save (@RequestBody PostDto p){
         postService.save(p);
     }
