@@ -4,6 +4,7 @@ import miu.edu.waa_jan24.entity.Post;
 import miu.edu.waa_jan24.entity.User;
 import miu.edu.waa_jan24.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,5 +33,16 @@ public class UserController {
     @GetMapping("{id}/posts")
     public List<Post> findPostsByUserId(@PathVariable("id") long id){
         return userService.findPostsByUserId(id);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable("id") long id) {
+        userService.deleteById(id);
+    }
+
+    @GetMapping("/moreThan/{count}")
+    public List<User> findUserGreaterThanNPosts (@PathVariable("n") int n) {
+        return userService.findUserGreaterThanNPosts(n);
     }
 }

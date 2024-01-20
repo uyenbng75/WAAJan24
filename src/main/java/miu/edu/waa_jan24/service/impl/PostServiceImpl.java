@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,5 +44,18 @@ public class PostServiceImpl implements PostService {
 //        dto.setAuthor(p.getAuthor());
 //        postRepo.save(dto);
         postRepo.save(modelMapper.map(p,Post.class));
+    }
+
+    @Override
+    public List<Post> findPostsHaveGivenTitle(String title) {
+        var posts = postRepo.findAll();
+        List<Post> postsWithGivenTitle = new ArrayList<>();
+
+        for (Post p : posts) {
+            if (p.getTitle().contains(title)){
+                postsWithGivenTitle.add(p);
+            }
+        }
+        return  postsWithGivenTitle;
     }
 }

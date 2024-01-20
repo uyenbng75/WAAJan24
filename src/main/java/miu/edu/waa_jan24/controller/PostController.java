@@ -31,5 +31,8 @@ public class PostController {
         postService.save(p);
     }
 
-
+    @GetMapping("/findPosts/{title}")
+    public List<Post> findPostsHaveGivenTitle (@PathVariable("title") String title) {
+        return  postService.findPostsHaveGivenTitle(title);
+    }
 }

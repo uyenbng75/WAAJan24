@@ -12,4 +12,6 @@ public interface UserService {
     public User findById(long id);
     public  void saveUser(User u);
     public List<Post> findPostsByUserId(long id);
+    public void deleteById (long id);
+    public List<User> findUserGreaterThanNPosts (int n);
 }
