@@ -3,7 +3,9 @@ package miu.edu.waa_jan24.service.impl;
 import miu.edu.waa_jan24.entity.Comment;
 import miu.edu.waa_jan24.repo.CommentRepo;
 import miu.edu.waa_jan24.service.CommentService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 //    CommentRepo commentRepo;
 
